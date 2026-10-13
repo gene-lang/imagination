@@ -4,14 +4,18 @@ The `painterly` medium adds `raster-painting/v2` and the separate `raster-cairo-
 
 ## Build and start
 
-From the repository root:
+From the root of the Gene checkout:
 
 ```sh
 gene run src/genex/raster/tools/build.gene
 # The build prints both worker paths. If using materialized packages:
 export GENE_RASTER_WORKER="$PWD/src/genex/raster/build/raster-worker"
 export GENE_RASTER_WORKER_V2="$PWD/src/genex/raster/build/raster-worker-v2"
-cd examples/imagination
+```
+
+Then, from this repository's root:
+
+```sh
 bin/imagination create landscape --media painterly --width 256 --height 256 \
   --prompt "A swirling blue sky, luminous yellow sun, golden fields and a dark cypress, with visible directional brushwork."
 bin/imagination run landscape --max-iterations 4

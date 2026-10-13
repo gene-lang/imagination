@@ -12,7 +12,11 @@ the decisions made during implementation, and what is still open.
 
 ## Requirements
 
-- This repository's `gene` binary (`nimble build`).
+- The `gene` executable on `PATH`, from a
+  [Gene checkout](https://github.com/gene-lang/gene-new) built with
+  `nimble build`. `package.gene` takes the raster library from that checkout
+  as `../gene-new/src/genex/raster`, so clone Gene beside this repository as
+  `gene-new` and put its `bin` directory on `PATH`.
 - librsvg and Poppler: `brew install librsvg poppler` on macOS, or
   `sudo apt-get install -y librsvg2-bin poppler-utils` on Debian/Ubuntu.
   If they are already installed, there is nothing to install: run
@@ -34,15 +38,14 @@ rendering never reaches a system font.
 
 Raster painting uses Cairo for path coverage, project-owned linear-light
 brushes/compositing and libpng. It does not require the SVG/PDF tools. Build
-the worker with `gene run src/genex/raster/tools/build.gene` from the repository
-root, then set `GENE_RASTER_WORKER` to its printed absolute path. See
+the worker with `gene run src/genex/raster/tools/build.gene` from the Gene
+checkout's root, then set `GENE_RASTER_WORKER` to its printed absolute path. See
 [raster setup and behavior](docs/raster-implementation.md) for dependencies,
 profiles, limits and deterministic pixel verification.
 
 ## Quick start
 
 ```sh
-cd examples/imagination
 bin/imagination doctor                       # tools, fonts, conversion, image transport
 bin/imagination create cat-window --prompt "A stylized cat beside a rainy city window."
 bin/imagination run cat-window --max-iterations 8
@@ -59,8 +62,8 @@ guidance, use **Textured painting** or `--media painterly`. See the
 [painterly guide](docs/painterly.md), including `reference` and
 `paint-reference` commands. Its separate v2 renderer preserves existing v1 projects.
 
-`bin/imagination` runs `${GENE_BINARY:-gene}`. Projects live in
-`$IMAGINATION_HOME` (default `examples/imagination/projects/`).
+`bin/imagination` runs the `gene` on `PATH`. Projects live in
+`$IMAGINATION_HOME` (default `projects/` in this repository).
 
 In the browser: describe a picture to create a project, press **Draw**, and
 watch each edit appear while it is under review. The line under the canvas
@@ -90,7 +93,6 @@ two revisions, and **Choose as result** to record the selection.
 ## Tests
 
 ```sh
-cd examples/imagination
 gene test
 ```
 

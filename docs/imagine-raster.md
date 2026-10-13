@@ -436,7 +436,7 @@ Publication order remains: validate/apply, full repaint, evaluate, write and flu
 | `src/media.gene` | Minimum dispatch boundary shared by SVG and raster |
 | `raster/dependencies.gene` | Conservative regions, consumers, reads and order interactions |
 | `raster/render.gene` | Worker orchestration, full repaint, profiles, manifests and PNG handoff |
-| `src/genex/raster/` | Reusable native coverage/dab/compositing engine, Gene build/transport and fixed PNG encoder settings |
+| `src/genex/raster/` in the Gene repository | Reusable native coverage/dab/compositing engine, Gene build/transport and fixed PNG encoder settings |
 | Existing evolution/store/jobs/server modules | Shared framework responsibilities |
 | `prompts/raster/` | Schema-derived drawing, evaluation and merge templates |
 | Existing `web/` | Raster inspectors and workbench specialization |

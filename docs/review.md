@@ -41,13 +41,13 @@ generic Media protocol has not been implemented yet.
 
 ## Validation
 
-The documented `gene test` command, run from `examples/imagination` using the
+The documented `gene test` command, run from the package root using the
 current private release build, passed all 104 tests. Additional Gene probes
 reproduced the six findings below without model/network calls. The probes and
 output are in ignored scratch files:
 
-- `examples/imagination/tmp/review_probe.gene`
-- `tmp/imagination-review-probe.log`
+- `tmp/review_probe.gene`
+- `tmp/imagination-review-probe.log` in the Gene checkout
 - `tmp/imagination-review-tests.log`
 
 The concurrency probes inject a callback at the same boundary where a real

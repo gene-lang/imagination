@@ -29,7 +29,7 @@ Deterministic drawing
        [--width N] [--height N]          scene, exporting every step
        [--background #rrggbb] [--prefix P] [--media svg|raster|painterly]
 
-Projects (IMAGINATION_HOME, default examples/imagination/projects)
+Projects (IMAGINATION_HOME, default projects/ in this repository)
   create <project> --prompt TEXT         plan a goal and create a blank history
        [--media svg|raster|painterly] [--goal goal.gene] [--policy policy.gene] [--width N] [--height N]
   run <project> [--line NAME] [--max-iterations N]   draw on a line
@@ -499,7 +499,7 @@ New direction: ${direction}" goal_id ^media evolution/project/record/media))
     ($fs/remove ($path/join ($path/parent this_mod/.path) ".runtime-check"))
     nil
   catch Any
-    $"this gene binary (${($os/executable_path)}) is older than the standard library this example needs ($base64, strict $parse/read_all, $fs/write_bytes_atomic). Rebuild it with nimble build, or point GENE_BINARY at a current build.")
+    $"this gene binary (${($os/executable_path)}) is older than the standard library this example needs ($base64, strict $parse/read_all, $fs/write_bytes_atomic). Rebuild it with nimble build, or put a current build first on PATH.")
   )
 
 (fn main [argv] : Int

@@ -783,7 +783,7 @@ An export of a selected revision can include SVG, PDF, PNG, and an optional hist
 
 ## 13. Example-project module structure
 
-The implementation lives in `examples/imagination/` and follows the layout of `examples/gene-harness`: a `package.gene` manifest, engine modules under `src/`, the browser client under `client/`, and specs under `tests/`.
+The implementation is this repository. It follows the layout of Gene Harness (`examples/gene-harness` in the Gene repository): a `package.gene` manifest, engine modules under `src/`, the browser client under `client/`, and specs under `tests/`.
 
 | Module or directory | Responsibility |
 | --- | --- |
@@ -1049,8 +1049,8 @@ Before making `Evolution` a general Gene standard-library type, review which par
 
 This document specifies a proposed example project. The creative architecture, type/API names, schemas, and history policies are design choices made here; the notes below are grounding for the language and the chosen medium.
 
-- This repository's [language guide](../../../docs/language.md), [standard library reference](../../../docs/stdlib.md), and [workflows](../../../docs/workflows.md): node notation, the namespaces listed in section 3.3, and the web profile.
-- [Gene Harness](../../gene-harness/README.md): the precedent for an application with a web-profile client, a WebSocket event channel, and a `package.gene` layout.
+- The Gene repository's [language guide](https://github.com/gene-lang/gene-new/blob/main/docs/language.md), [standard library reference](https://github.com/gene-lang/gene-new/blob/main/docs/stdlib.md), and [workflows](https://github.com/gene-lang/gene-new/blob/main/docs/workflows.md): node notation, the namespaces listed in section 3.3, and the web profile.
+- [Gene Harness](https://github.com/gene-lang/gene-new/blob/main/examples/gene-harness/README.md): the precedent for an application with a web-profile client, a WebSocket event channel, and a `package.gene` layout.
 - [W3C SVG document structure](https://www.w3.org/TR/SVG2/struct.html): standard structure, grouping, IDs, definitions, and reusable resources inform the SVG mapping. The application intentionally supports a smaller, explicit subset.
 - [W3C SVG coordinates](https://www.w3.org/TR/SVG2/coords.html): the serializer uses an explicit view box and transform semantics. The decomposed field schema and replay rules are application choices.
 - [librsvg](https://gitlab.gnome.org/GNOME/librsvg): `rsvg-convert` converts SVG to PDF and PNG. Check the deployed executable's `--help` for flags; the conversion commands in this revision were exercised locally.

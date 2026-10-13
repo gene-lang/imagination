@@ -8,12 +8,16 @@ The authoritative value is a normalized `(painting ^schema "raster-painting/v1" 
 
 ## Build and use
 
-Install a C++17 compiler, pkg-config, Cairo and libpng development files (`brew install cairo libpng pkg-config`, or Debian/Ubuntu `libcairo2-dev libpng-dev pkg-config`). From the repository root:
+Install a C++17 compiler, pkg-config, Cairo and libpng development files (`brew install cairo libpng pkg-config`, or Debian/Ubuntu `libcairo2-dev libpng-dev pkg-config`). From the root of the Gene checkout:
 
 ```sh
 gene run src/genex/raster/tools/build.gene
 export GENE_RASTER_WORKER="$PWD/src/genex/raster/build/raster-worker"
-cd examples/imagination
+```
+
+Then, from this repository's root:
+
+```sh
 bin/imagination create sphere --media raster --width 256 --height 256 \
   --prompt "Paint a red sphere with upper-left light and a soft cast shadow."
 bin/imagination run sphere --max-iterations 6
@@ -48,7 +52,7 @@ A language/tooling observation: `path` is intrinsic syntax at a call head. A loc
 
 ## Validation
 
-`gene test` from `examples/imagination`: **142 passed, zero failures/errors** (120 existing tests plus 22 raster/evidence tests). Raster tests include independently specified linear-light pixels, gradients, alpha, layer opacity, masks, erase, segment splitting, normalization, invalid data, asset verification, locks, history/branch/replay/export/crops and actual PNG delivery through a fixture VisionAgent. All 22 also pass with AddressSanitizer and UndefinedBehaviorSanitizer enabled on the native worker, including malformed wire requests and excessive dab-count rejection.
+`gene test` from this repository's root: **142 passed, zero failures/errors** (120 existing tests plus 22 raster/evidence tests). Raster tests include independently specified linear-light pixels, gradients, alpha, layer opacity, masks, erase, segment splitting, normalization, invalid data, asset verification, locks, history/branch/replay/export/crops and actual PNG delivery through a fixture VisionAgent. All 22 also pass with AddressSanitizer and UndefinedBehaviorSanitizer enabled on the native worker, including malformed wire requests and excessive dab-count rejection.
 
 Two prompt-only model runs produced a shaded sphere (three edits/four decision calls) and an apple (four edits/five decision calls). [Programs, PNGs and assessment](../fixtures/raster/README.md) are saved as fixtures. The apple satisfied its hard requirements while leaving optional finish quality partial. Fresh-process CLI replay reproduced every saved apple program, pixel and PNG digest. A disposable Chrome tab verified the raster canvas, history, comparison, PNG-only export and medium selector.
 
